@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Panel - News Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./admin.css">
+
+</head>
+
+<body>
+    <div class="sn-admin-shell">
+        <div class="sn-admin-backdrop"></div>
+
+        <aside class="sn-admin-sidebar">
+            <div class="sn-sb-brand">
+                <div class="sn-sb-logo">NP</div>
+                <div class="sn-sb-title">
+                    <div class="sn-name">News Portal</div>
+                    <div class="sn-sub">Admin Panel</div>
+                </div>
+            </div>
+
+            <div class="sn-sb-scroll">
+
+                <div class="sn-sb-section">Main</div>
+                <nav class="sn-sb-nav">
+                    <a class="sn-sb-link {{ request()->routeIs('admin.dashboard') ? 'sn-active' : '' }}"
+                        href="{{ route('admin.dashboard') }}">
+                        <span class="sn-sb-ico"><i class="fa-solid fa-gauge-high"></i></span>
+                        <span>Dashboard</span>
+                    </a>
+                </nav>
+
+                <div class="sn-sb-section">Content</div>
+                <nav class="sn-sb-nav">
+                    <a class="sn-sb-link" href="#">
+                        <span class="sn-sb-ico"><i class="fa-regular fa-newspaper"></i></span>
+                        <span>Posts</span>
+                    </a>
+
+                    <a class="sn-sb-link" href="#">
+                        <span class="sn-sb-ico"><i class="fa-solid fa-layer-group"></i></span>
+                        <span>Categories</span>
+                    </a>
+
+                    <a class="sn-sb-link" href="#">
+                        <span class="sn-sb-ico"><i class="fa-solid fa-tags"></i></span>
+                        <span>Tags</span>
+                    </a>
+
+                    <a class="sn-sb-link" href="#">
+                        <span class="sn-sb-ico"><i class="fa-regular fa-images"></i></span>
+                        <span>Gallery</span>
+                    </a>
+
+                    <a class="sn-sb-link" href="#">
+                        <span class="sn-sb-ico"><i class="fa-solid fa-video"></i></span>
+                        <span>Videos</span>
+                    </a>
+                </nav>
+
+                <div class="sn-sb-section">Monetize</div>
+                <nav class="sn-sb-nav">
+                    <a class="sn-sb-link" href="#">
+                        <span class="sn-sb-ico"><i class="fa-solid fa-location-dot"></i></span>
+                        <span>Ad Positions</span>
+                    </a>
+
+                    <a class="sn-sb-link" href="#">
+                        <span class="sn-sb-ico"><i class="fa-solid fa-bullhorn"></i></span>
+                        <span>Ads</span>
+                    </a>
+                </nav>
+
+                <div class="sn-sb-section">System</div>
+                <nav class="sn-sb-nav">
+                    <a class="sn-sb-link" href="#">
+                        <span class="sn-sb-ico"><i class="fa-solid fa-gear"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </nav>
+
+            </div>
+
+            <div class="sn-sb-footer">
+                <div class="fw-semibold text-white-50">Logged in as</div>
+                <div class="text-white">Guest</div>
+            </div>
+        </aside>
+
+        <div class="sn-admin-main">
+            <header class="sn-topbar">
+                <div class="sn-topbar-left">
+                    <button class="btn btn-light d-lg-none" type="button" data-sn-toggle="sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div class="sn-topbar-title">
+                        <p class="sn-t1 mb-0">Dashboard</p>
+                        <p class="sn-t2 mb-0">Welcome back</p>
+                    </div>
+                </div>
+
+                <div class="sn-topbar-center">
+                    <div class="sn-search">
+                        <span class="sn-search-ico"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input type="text" placeholder="Search posts, categories, tags..." />
+                    </div>
+                </div>
+
+                <div class="sn-topbar-right">
+                    <div class="dropdown">
+                        <button class="sn-avatar-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="sn-avatar"
+                                src="https://ui-avatars.com/api/?name=Admin&background=EEF2FF&color=111827"
+                                alt="Profile">
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa-regular fa-user me-2"></i> Profile
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-danger" href="#">
+                                    <i class="fa-solid fa-right-from-bracket me-2"></i> Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+
+            <main class="sn-admin-content">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <div class="card card-stat p-3">
+                            <div class="text-muted small">Total Posts</div>
+                            <div class="fs-3 fw-bold">0</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card card-stat p-3">
+                            <div class="text-muted small">Published Today</div>
+                            <div class="fs-3 fw-bold">0</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card card-stat p-3">
+                            <div class="text-muted small">Total Views</div>
+                            <div class="fs-3 fw-bold">0</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card card-stat p-3">
+                            <div class="text-muted small">Active Ads</div>
+                            <div class="fs-3 fw-bold">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3 mt-1">
+                    <div class="col-lg-8">
+                        <div class="card p-3 border-0 rounded-4">
+                            <div class="fw-semibold mb-2">Recent Posts</div>
+                            <div class="text-muted small">We will load recent posts here after DB setup.</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card p-3 border-0 rounded-4">
+                            <div class="fw-semibold mb-2">Quick Actions</div>
+                            <div class="d-grid gap-2">
+                                <a href="#" class="btn btn-primary">Create Post</a>
+                                <a href="#" class="btn btn-outline-secondary">Manage Ads</a>
+                                <a href="#" class="btn btn-outline-secondary">Settings</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="py-3 text-center text-muted small">
+                © 2026 News | Powered by <a href="https://luckyitsolution.com" class="text-decoration-none">Lucky IT
+                    Solution</a>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // mobile sidebar toggle
+        document.addEventListener("DOMContentLoaded", () => {
+            const btn = document.querySelector("[data-sn-toggle='sidebar']");
+            const sidebar = document.querySelector(".sn-admin-sidebar");
+            const backdrop = document.querySelector(".sn-admin-backdrop");
+
+            const open = () => {
+                sidebar?.classList.add("sn-open");
+                backdrop?.classList.add("sn-show");
+                document.body.classList.add("sn-no-scroll");
+            };
+
+            const close = () => {
+                sidebar?.classList.remove("sn-open");
+                backdrop?.classList.remove("sn-show");
+                document.body.classList.remove("sn-no-scroll");
+            };
+
+            btn?.addEventListener("click", open);
+            backdrop?.addEventListener("click", close);
+
+            // close on esc
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") close();
+            });
+        });
+    </script>
+</body>
+
+</html>
